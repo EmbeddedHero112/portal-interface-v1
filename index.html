@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal Interface v1</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Music window on left side */
+    #music-player-container {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      width: 300px;
+      background: rgba(20,20,30,0.85);
+      padding: 10px;
+      border: 2px solid #FFD27F;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,200,100,0.6);
+      z-index: 1000;
+    }
+    #music-player-container input,
+    #music-player-container button {
+      display: block;
+      margin: 0 auto 10px auto;
+      width: 90%;
+      padding: 5px;
+    }
+    #music-list {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    #audio-controls {
+      text-align: center;
+    }
+    #music-window-title {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #FFD27F;
+    }
+    /* hidden class */
+    .hidden { display: none !important; }
+    .visible { display: block !important; }
+  </style>
+</head>
+<body>
+
+  <!-- BOOT SCREEN -->
+  <div id="boot-screen">
+    <div id="boot-content">
+      <div class="boot-text" id="boot-text"></div>
+      <div id="spiderman-symbol">
+        <svg viewBox="0 0 64 64" width="100" height="100">
+          <ellipse cx="32" cy="32" rx="6" ry="10" fill="black"/>
+          <ellipse cx="32" cy="22" rx="4" ry="4" fill="black"/>
+          <path d="M26 24 C18 20, 12 16, 10 12" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M26 28 C18 28, 12 32, 10 36" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M26 32 C18 36, 12 40, 10 44" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M26 36 C18 44, 12 48, 10 52" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M38 24 C46 20, 52 16, 54 12" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M38 28 C46 28, 52 32, 54 36" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M38 32 C46 36, 52 40, 54 44" stroke="black" stroke-width="2" fill="none"/>
+          <path d="M38 36 C46 44, 52 48, 54 52" stroke="black" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div id="special-message" class="hidden">
+        <p>Happy birthday Preezybeatz and welcome to the Spider Society!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN MENU -->
+  <div id="main-menu" class="hidden">
+    <canvas id="web-canvas"></canvas>
+
+    <!-- Time / Date in top-right corner -->
+    <div id="time-box">
+      <div id="time"></div>
+      <div id="date"></div>
+    </div>
+
+    <!-- 4 Apps -->
+    <div class="app" id="cannon">Cannon Events</div>
+    <div class="app" id="logs">Logs</div>
+    <div class="app" id="spider">Spider Hall</div>
+    <div class="app" id="gallery">Photo Gallery</div>
+
+    <!-- Center dot for canvas lines -->
+    <div id="center-dot"></div>
+  </div>
+
+  <!-- PANEL (for app content) -->
+  <div id="panel" class="hidden"></div>
+
+  <!-- MUSIC PLAYER (persistent window, starts hidden) -->
+  <div id="music-player-container" class="hidden">
+    <div id="music-window-title">Music</div>
+    <input type="text" id="music-url" placeholder="Paste YouTube/Spotify/MP3 link" />
+    <button id="add-music-btn">Add</button>
+    <div id="music-list"></div>
+    <div id="audio-controls"></div>
+  </div>
+
+  <!-- SIDE MISSIONS MINI TAB -->
+  <div id="side-missions-tab" class="hidden">
+    Side Missions
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
